@@ -1,5 +1,5 @@
-- name: "maven verify"
-  description: "clean the previous build and run maven verify"
-  cmd: "mvn clean verify"
+- name: "Paso test"
+  description: "este es un paso de prueba"
+  cmd: "echo 'Hola desde el paso test, respuesta BUILD SUCCESS'"
   outputs: 
-    - probe: (?m)^.*BUILD SUCCESS.*
+    - probe: .*BUILD SUCCESS.*

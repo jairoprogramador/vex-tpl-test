@@ -136,15 +136,11 @@
 - name: "k8s_quota_storage"
   description: "total storage requests allowed in namespace"
   value: "5Gi"
-
+  
 - name: "k8s_project_instance"
   description: "name base of Kubernetes composed by the project name, id and environment"
   value: ${var.project_name}${var.project_id}-${var.environment}
 
-- name: "k8s_namespace"
-  description: "namespace of Kubernetes composed by the project name and the team"
-  value: ${var.k8s_project_instance}-${var.project_team}
-
 - name: "k8s_ingress_host"
   description: "host domain for the ingress (FQDN of the AKS cluster)"
-  value: "${var.azure_kubernetes_cluster_fqdn}"
+  value: "${var.azure_resource_group_name}"
