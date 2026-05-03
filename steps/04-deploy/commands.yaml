@@ -1,6 +1,6 @@
 - name: "Apply Kubernetes manifests"
   description: "apply the Kubernetes manifests to the existing cluster"
-  cmd: "kubectl apply -f ."
+  cmd: "echo 'Hola desde el paso deploy, aplicando los manifiestos de Kubernetes'"
   workdir: "./k8s"
   templates:
     - "service.yaml"
