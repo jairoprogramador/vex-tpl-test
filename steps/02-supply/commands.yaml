@@ -6,4 +6,11 @@
       description: "Return the name of the resource group created in Azure"
       probe: azure_resource_group_name\s*=\s*"([^"]+)"
 
-  
+- name: "Paso supply con shared"
+  description: "variables compartidas entre pasos"
+  cmd: "echo 'Hola desde el paso supply con shared, respuesta azure_app_group_name = \"my-app-group\"'"
+  workdir: "./terraform/shared"
+  outputs:
+    - name: "azure_app_group_name"
+      description: "Return the name of the app group created in Azure"
+      probe: azure_app_group_name\s*=\s*"([^"]+)"
