@@ -1,7 +1,6 @@
 - name: "maven verify"
   description: "clean the previous build and run maven verify"
-  workdir: ${var.project_workdir}
-  cmd: "mvn clean verify"
+  cmd: "cd ${var.project_workdir} && mvn clean verify"
   outputs: 
     - probe: (?m)^.*BUILD SUCCESS.*
 
