@@ -4,8 +4,8 @@
 
 - name: comando-package-02
   description: usa la variable configurada
-  cmd: echo var ${var.package}
+  cmd: echo var "${var.package}"
 
 - name: comando-package-03
   description: usa la variable compartida
-  cmd: echo var shared ${var.shared}
+  cmd: echo var shared "${var.shared}"

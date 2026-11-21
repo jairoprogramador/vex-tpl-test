@@ -53,3 +53,13 @@ Centralizamos toda la lógica de despliegue —desde la verificación de herrami
 Usa `mydeploy` como punto de partida. Fórkalo, adáptalo a tus tecnologías y empieza a construir una cultura de despliegues estandarizados en tu organización.
 
 **Con `mydeploy` y `fastDeploy`, la infraestructura deja de ser un cuello de botella y se convierte en una ventaja competitiva.**
+
+## Bootstrap de prueba (`bootstrap/azure/`)
+
+Esta plantilla trae un bootstrap mínimo del contrato `azure/v1` para probar `vex bootstrap <ambiente>` sin desplegar nada con costo. Crea el grupo de recursos de carga (`rg-vex-<slug>-<ambiente>`), el de identidades (`rg-vex-<slug>-<ambiente>-id`) y la identidad de despliegue (`id-vex-<slug>-<ambiente>-deploy`).
+
+| Identidad | Rol | Ámbito |
+|---|---|---|
+| Despliegue | Reader | Grupo de recursos de carga |
+
+Reader es lo mínimo que deja comprobar la conexión y el canje del token: la identidad puede ver el grupo de carga y no puede cambiar nada. No crea identidad `pull` ni almacenamiento de estado, y ningún paso construye ni despliega imágenes. El único paso que recibe el token es `supply`, que enseña el grupo de recursos que entrega la conexión. Se despliega `main.json`; tras cambiar un `.bicep`, recompila con `az bicep build --file bootstrap/azure/main.bicep --outfile bootstrap/azure/main.json`.

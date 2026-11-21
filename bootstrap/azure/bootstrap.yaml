@@ -1,0 +1,8 @@
+# Bootstrap mínimo para probar el contrato azure/v1 sin desplegar nada con costo:
+# dos grupos de recursos y una identidad de despliegue que solo puede leer.
+# Lo aplica `vex bootstrap <ambiente>`; el motor no lee esta carpeta.
+contract: azure/v1
+template: main.json
+providers:
+  - Microsoft.ManagedIdentity
+cloud_steps: [supply]

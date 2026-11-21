@@ -15,8 +15,12 @@
 
 - name: comando-supply-03
   description: usa la variable configurada
-  cmd: echo var ${var.supply}
+  cmd: echo var "${var.supply}"
 
 - name: comando-supply-04
   description: usa la variable compartida
-  cmd: echo var shared ${var.shared}
+  cmd: echo var shared "${var.shared}"
+
+- name: comando-supply-05
+  description: enseña el grupo de recursos que entrega la conexión de nube (contrato azure/v1), si la hay
+  cmd: echo "grupo de recursos de la conexion ${VEX_AZURE_RESOURCE_GROUP:-ninguno}"
